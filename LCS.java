@@ -8,9 +8,7 @@ public class LCS {
     public char b[];
     public char c [];
     public LCS(){
-        System.out.println("write one String line");
         Scanner first=new Scanner(System.in);
-        System.out.println("write one String line");
         Scanner second=new Scanner(System.in);
         this.b=new char[1000000];
         this.c=new char[1000000];

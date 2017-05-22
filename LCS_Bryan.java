@@ -10,7 +10,7 @@ public class JavaApplication11 {
 
  
   
-    public static void fil_col_zero ( String x, String y, int mat[][], int n , int m){ // n i m guardan la longitud de las cades x e y
+    public static void fil_col_zero (int mat[][], int n , int m){ // n i m guardan la longitud de las cades x e y
         int i, j;
         for(i=0; i< n ; i++){
             mat[i][0]=0;
