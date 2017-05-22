@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Created by ogilo on 15/05/2017.
  */
-public class LCS {
+/*public class LCS {
     // default arguments on i,j equale to 0
     public char b[];
     public char c [];
@@ -74,3 +74,4 @@ public class LCS {
 
 }
 
+*/

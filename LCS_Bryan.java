@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import static java.time.Clock.system;
 import java.util.Scanner;
+import java.math.*;
 
 
-public class JavaApplication11 {
+public class LCS_Bryan {
 
  
   
@@ -25,16 +26,14 @@ public class JavaApplication11 {
         int i,j;
         for(i=1; i< n ; i++){
             for(j=1; j< m;j++){
-                if(x.charAt(i-1) == y.charAt(j-1)){
-                    mat[i][j] = mat[i-1][j-1]+1;
+                if(x.charAt(i-1) != y.charAt(j-1)){
+                    mat[i][j]=mat[i-1][j-1]+1;
+                    mat[i][j]= Math.min(mat[i-1][j]+2,mat[i][j]);
+                    mat[i][j]= Math.min(mat[i][j-1]+2,mat[i][j]);
+
                 }
                 else{
-                    if(mat[i-1][j] >= mat [i][j-1]){
-                        mat[i][j]=mat[i-1][j];
-                    }
-                    else{
-                        mat[i][j]=mat[i][j-1];
-                    }
+                    mat[i][j]=mat[i-1][j-1];
                 }
             
             }
@@ -68,12 +67,12 @@ public class JavaApplication11 {
         String x= bf.readLine();
         BufferedReader bf1=new BufferedReader(new InputStreamReader(System.in));
         String y= bf1.readLine();
-        int n=x.length();
-        int m=y.length();
+        int n=x.length()+1;
+        int m=y.length()+1;
         
         int mat[][]=new int[n][m];
         
-        fil_col_zero(x,y,mat,n,m);
+        fil_col_zero(mat,n,m);
         int res=lcs(x,y,mat,n,m);
         
         System.out.print(res);
