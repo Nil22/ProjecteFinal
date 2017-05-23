@@ -8,21 +8,23 @@
  *
  * @author Skylake-Adry
  */
-public class Genoma {
-    public String cadena;
-    public String nom;
+public class Especie {
+    private Genoma adn;
+    private String nom;
     
-    public Genoma(String s, String name){
-        cadena=s;
+    public Especie(Genoma animal, String name){
+        adn=animal;
         nom=name;
     }
 
-    public String getCadena() {
-        return cadena;
+    public Genoma getAdn() {
+        return adn;
     }
 
     public String getNom() {
         return nom;
     }
+
+    
     
 }
