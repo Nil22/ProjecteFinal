@@ -3,14 +3,12 @@ import java.util.*;
 /**
  * Created by ogilo on 15/05/2017.
  */
-public class LCS {
+/*public class LCS {
     // default arguments on i,j equale to 0
     public char b[];
     public char c [];
     public LCS(){
-        System.out.println("write one String line");
         Scanner first=new Scanner(System.in);
-        System.out.println("write one String line");
         Scanner second=new Scanner(System.in);
         this.b=new char[1000000];
         this.c=new char[1000000];
@@ -76,3 +74,4 @@ public class LCS {
 
 }
 
+*/
