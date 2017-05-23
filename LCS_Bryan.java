@@ -23,9 +23,8 @@ public class LCS_Bryan {
     }
     
     public static  int lcs (String x, String y, int mat[][], int n, int m){
-        int i,j;
-        for(i=1; i< n ; i++){
-            for(j=1; j< m;j++){
+        for(int i=1; i< n ; i++){
+            for(int j=1; j< m;j++){
                 if(x.charAt(i-1) != y.charAt(j-1)){
                     mat[i][j]=mat[i-1][j-1]+1;
                     mat[i][j]= Math.min(mat[i-1][j]+2,mat[i][j]);
