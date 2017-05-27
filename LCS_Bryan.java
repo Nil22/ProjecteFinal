@@ -14,13 +14,14 @@ public class LCS_Bryan {
     public static void fil_col_zero (int mat[][], int n , int m){ // n i m guardan la longitud de las cades x e y
         int i, j;
         for(i=0; i< n ; i++){
-            mat[i][0]=0;
+            mat[i][0]=2*i;
         }
 
         for (j=0; j< m; j++){
-            mat[0][j]=0;
+            mat[0][j]=2*j;
         }
     }
+
     
     public static  int lcs (String x, String y, int mat[][], int n, int m){
         for(int i=1; i< n ; i++){
