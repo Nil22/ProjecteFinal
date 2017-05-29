@@ -61,8 +61,8 @@ public class Practica {
         
     }
 
-    public void taula_coincideincies(ArrayList<Genomes> a){
-        int [][] taula_coinci=new int [a.lenght()][a.lenght()]
+   /* public void taula_coincideincies(ArrayList<Genomes> a){
+        int [][] taula_coinci=new int [a.lenght()][a.lenght()];
         for(int i=0;i<a.lenght();++i){
             for(int k=0;k<a.lenght();++k){
                 taula_coinci[i][k]=this.lcs(a[i],a[k]);
@@ -70,6 +70,7 @@ public class Practica {
         }
         return taula_coinci;
     }
+    */
 
 
     

@@ -1,77 +1,67 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.*;
 /**
  * Created by ogilo on 15/05/2017.
  */
-/*public class LCS {
-    // default arguments on i,j equale to 0
-    public char b[];
-    public char c [];
-    public LCS(){
-        Scanner first=new Scanner(System.in);
-        Scanner second=new Scanner(System.in);
-        this.b=new char[1000000];
-        this.c=new char[1000000];
-        int i=0;
-        while(first.hasNext()){
-            b[i]=first.next().charAt(0);
-            ++i;
+public class LCS {
+    public static int minDistance(String word1, String word2) {
+        int len1 = word1.length();
+        int len2 = word2.length();
+
+        // len1+1, len2+1, because finally return dp[len1][len2]
+        int[][] dp = new int[len1 + 1][len2 + 1];
+
+        for (int i = 0; i <= len1; i++) {
+            dp[i][0] = i;
         }
-        i=0;
-        while(second.hasNext()){
-            c[i]=second.next().charAt(0);
-            ++i;
+
+        for (int j = 0; j <= len2; j++) {
+            dp[0][j] = j;
         }
-        int [][] result = new int [b.length][c.length];
-        result=this.LCS(b,c);
-    }
-    public int [][] LCS_recursivo(char b [], char c[], int i, int j){
-        int [][] result =new int [b.length][c.length];
-        int [][] result_aux =new int [b.length][c.length];
-        for (int k = 0; k <b.length ; k++) {
-            result[k][0]=0;
-        }
-        for (int k = 0; k <c.length ; k++) {
-            result[0][k]=0;
-        }
-        while(i<b.length){
-            while(j<c.length){
-                if(b[i]==c[j]){
-                    result[i][j]=1;
-                }
-                else{
-                    result=this.LCS_recursivo(b,c,i+1,j);
-                    result_aux=this.LCS_recursivo(b,c,i,j+1);
+
+        //iterate though, and check last char
+        for (int i = 0; i < len1; i++) {
+            char c1 = word1.charAt(i);
+            for (int j = 0; j < len2; j++) {
+                char c2 = word2.charAt(j);
+
+                //if last two chars equal
+                if (c1 == c2) {
+                    //update dp value for +1 length
+                    dp[i + 1][j + 1] = dp[i][j];
+                } else {
+                    int replace = dp[i][j] + 1;
+                    int insert = dp[i][j + 1] + 2;
+                    int delete = dp[i + 1][j] + 2;
+
+                    int min = replace > insert ? insert : replace;
+                    min = delete > min ? min : delete;
+                    dp[i + 1][j + 1] = min;
                 }
             }
         }
-        for(int l=1;l<b.length;++i){
-            for (int k = 0; k <c.length ; k++) {
-                if(result_aux[i][j]==1){
-                    result[i][j]=1;
-                }
-            }
-        }
-        return result;
+
+        return dp[len1][len2];
     }
 
-    public int [][] LCS(char[] b,char[] c){
-        int [][] result =new int [b.length][c.length];
-        for (int k = 0; k <b.length ; k++) {
-            result[k][0]=0;
-        }
-        for (int k = 0; k <c.length ; k++) {
-            result[0][k]=0;
-        }
-        for (int i = 0; i <b.length ; i++) {
-            for (int j = 0; j <c.length ; j++) {
-                if(b[i]==c[j]) result[i][j]=1;
-            }
-        }
-    return result;
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+        String x= bf.readLine();
+        BufferedReader bf1=new BufferedReader(new InputStreamReader(System.in));
+        String y= bf1.readLine();
+        int n=x.length()+1;
+        int m=y.length()+1;
+
+        int mat[][]=new int[n][m];
+
+        int res=minDistance(x,y);
+
+        System.out.print(res);
     }
 
 
 }
 
-*/

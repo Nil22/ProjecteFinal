@@ -14,11 +14,11 @@ public class LCS_Bryan {
     public static void fil_col_zero (int mat[][], int n , int m){ // n i m guardan la longitud de las cades x e y
         int i, j;
         for(i=0; i< n ; i++){
-            mat[i][0]=2*i;
+            mat[i][0]=i;
         }
 
         for (j=0; j< m; j++){
-            mat[0][j]=2*j;
+            mat[0][j]=j;
         }
     }
 
