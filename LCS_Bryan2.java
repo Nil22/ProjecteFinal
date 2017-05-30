@@ -1,16 +1,13 @@
-
-import java.io.*;
-
-import static java.time.Clock.system;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
-import java.math.*;
 
 
-public class LCS_Bryan {
+public class LCS_Bryan2 {
 
  
   
@@ -54,16 +51,17 @@ public class LCS_Bryan {
         int m=argv.length;
         List<String> noms= new ArrayList<String>();
         List<String> ncadenes=new ArrayList<String>();
-        List<Genoma> genomes = new ArrayList<Genoma>();
+        ArrayList<Genoma> genomes = new ArrayList<Genoma>();
 
         noms.add("Bovi");noms.add("Cocodril");noms.add("Conill");noms.add("Gallina");noms.add("Gat");noms.add("Gos"); noms.add("huma");noms.add("macaco"); noms.add("orangutan");
         noms.add("ovi"); noms.add("porc");noms.add("ratoli");noms.add("ximpanze");
         for(int i=0;i < m; i++){
+            System.out.println("here");
             String cadena;
             File fichero;
             FileReader f;
             BufferedReader b;
-            fichero = new File("C:/Users/Skylake-Adry/Desktop/PROP/Nucleotids proteina albumina/",argv[i]);
+            fichero = new File("C:/Users/ogilo/IdeaProjects/ProjecteFinal/Nucleotids proteina albumina",argv[i]);
             f=new FileReader(fichero);
             b=new BufferedReader(f);
             String linea;
@@ -82,46 +80,26 @@ public class LCS_Bryan {
             genomes.add(g);
         }
 
-        /*int[][] taula=taula_coincidencies(genomes);
+        int[][] taula=new int[genomes.size()][genomes.size()];
+        taula=taula_coincidencies(genomes);
         for (int i = 0; i < genomes.size(); i++) {
             for (int j = 0; j <genomes.size() ; j++) {
                 System.out.println(taula[i][j]);
             }
+            System.out.println("hola");
         }
-*/
+
 
     }
-   /* public static  int[][] taula_coincidencies(List<Genoma> a){
-        int [][] taula_coinci=new int [a.size()][a.size()];
-        Iterator it =a.iterator();
-        Iterator it2=a.iterator();
-        int i=0;
-        int j=0;
-        while(i<a.size() || it2.hasNext()){
-            while(j<a.size() || it.hasNext()){
-                taula_coinci[i][j]=lcs(it.next().getCadena(),it2.next().getCadena(),it.next().getCadena().length(),it2.next().getCadena().length());
-                if(j==a.size()-1){
-                    j=0;
-                }
-                else ++j;
-
-                if(!it.hasNext()){
-                    it=a.iterator();
-                }
-                if(!it.hasNext()){
-                    it=a.iterator();
-                }
-            }
-            if(i==a.size()-1){
-                i=0;
-            }
-            else ++i;
-            if(!it2.hasNext()){
-                it=a.iterator();
+    public static  int[][] taula_coincidencies(ArrayList<Genoma> a){
+        int [][]taula=new int [a.size()][a.size()];
+        for (int i = 0; i < a.size() ; i++) {
+            for (int j = 0; j < a.size() ; j++) {
+                taula[i][j]=lcs(a.get(i).getCadena(),a.get(j).getCadena(),a.get(i).getCadena().length(),a.get(j).getCadena().length());
             }
         }
-        return taula_coinci;
+        return taula;
     }
-*/
+
 
 }

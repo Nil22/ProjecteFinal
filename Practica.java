@@ -70,8 +70,8 @@ public class Practica {
         }
         return taula_coinci;
     }
-    */
 
+*/
 
     
 }
