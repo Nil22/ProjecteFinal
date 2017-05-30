@@ -56,6 +56,7 @@ public class LCS_Bryan2 {
         noms.add("Bovi");noms.add("Cocodril");noms.add("Conill");noms.add("Gallina");noms.add("Gat");noms.add("Gos"); noms.add("huma");noms.add("macaco"); noms.add("orangutan");
         noms.add("ovi"); noms.add("porc");noms.add("ratoli");noms.add("ximpanze");
         for(int i=0;i < m; i++){
+            System.out.println("here");
             String cadena;
             File fichero;
             FileReader f;
@@ -85,6 +86,7 @@ public class LCS_Bryan2 {
             for (int j = 0; j <genomes.size() ; j++) {
                 System.out.println(taula[i][j]);
             }
+            System.out.println("hola");
         }
 
 
