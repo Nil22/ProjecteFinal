@@ -56,7 +56,6 @@ public class LCS_Bryan2 {
         noms.add("Bovi");noms.add("Cocodril");noms.add("Conill");noms.add("Gallina");noms.add("Gat");noms.add("Gos"); noms.add("huma");noms.add("macaco"); noms.add("orangutan");
         noms.add("ovi"); noms.add("porc");noms.add("ratoli");noms.add("ximpanze");
         for(int i=0;i < m; i++){
-            System.out.println("here");
             String cadena;
             File fichero;
             FileReader f;
@@ -84,9 +83,10 @@ public class LCS_Bryan2 {
         taula=taula_coincidencies(genomes);
         for (int i = 0; i < genomes.size(); i++) {
             for (int j = 0; j <genomes.size() ; j++) {
-                System.out.println(taula[i][j]);
+                System.out.print(taula[i][j]);
+                System.out.print(" ");
             }
-            System.out.println("hola");
+            System.out.println();
         }
 
 
@@ -97,6 +97,7 @@ public class LCS_Bryan2 {
             for (int j = 0; j < a.size() ; j++) {
                 taula[i][j]=lcs(a.get(i).getCadena(),a.get(j).getCadena(),a.get(i).getCadena().length(),a.get(j).getCadena().length());
             }
+
         }
         return taula;
     }
